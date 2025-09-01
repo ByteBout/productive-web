@@ -2,3 +2,14 @@
 @plugin "daisyui" {
   themes: sunset;
 }
+
+@font-face {
+  font-family: IBMPlexSans;
+  src: url(/public/fonts/IBMPlexSans.ttf) format("truetype");
+  font-weight: 400 700;
+  font-style: normal;
+}
+
+@theme {
+  --font-ibm: "IBMPlexSans", sans-serif;
+}
