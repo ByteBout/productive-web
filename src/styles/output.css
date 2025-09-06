@@ -1033,9 +1033,6 @@
   .list-disc {
     list-style-type: disc;
   }
-  .list-none {
-    list-style-type: none;
-  }
   .flex-col {
     flex-direction: column;
   }
@@ -1089,6 +1086,9 @@
   .fill-base-content {
     fill: var(--color-base-content);
   }
+  .fill-primary {
+    fill: var(--color-primary);
+  }
   .stroke-current {
     stroke: currentcolor;
   }
@@ -1100,12 +1100,6 @@
   }
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
-  }
-  .px-3 {
-    padding-inline: calc(var(--spacing) * 3);
-  }
-  .px-4 {
-    padding-inline: calc(var(--spacing) * 4);
   }
   .px-5 {
     padding-inline: calc(var(--spacing) * 5);

@@ -11,6 +11,6 @@
     "48": "public/icons/icon48.png",
     "128": "public/icons/icon128.png"
   },
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "storage"],
   "host_permissions": ["<all_urls>"]
 }
