@@ -7,10 +7,6 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-400: oklch(70.4% 0.191 22.216);
-    --color-red-500: oklch(63.7% 0.237 25.331);
-    --color-green-400: oklch(79.2% 0.209 151.711);
-    --color-teal-400: oklch(77.7% 0.152 181.912);
     --color-black: #000;
     --spacing: 0.25rem;
     --text-sm: 0.875rem;
@@ -791,63 +787,6 @@
   .fixed {
     position: fixed;
   }
-  .top-0 {
-    top: calc(var(--spacing) * 0);
-  }
-  .top-0\.5 {
-    top: calc(var(--spacing) * 0.5);
-  }
-  .top-1 {
-    top: calc(var(--spacing) * 1);
-  }
-  .top-\[0\.20rem\] {
-    top: 0.20rem;
-  }
-  .top-\[0\.22rem\] {
-    top: 0.22rem;
-  }
-  .top-\[0\.23rem\] {
-    top: 0.23rem;
-  }
-  .top-\[0\.30rem\] {
-    top: 0.30rem;
-  }
-  .top-\[0\.35rem\] {
-    top: 0.35rem;
-  }
-  .top-\[0\.128\] {
-    top: 0.128;
-  }
-  .top-\[0\.130\] {
-    top: 0.130;
-  }
-  .top-\[0\.130rem\] {
-    top: 0.130rem;
-  }
-  .top-\[0\.135rem\] {
-    top: 0.135rem;
-  }
-  .top-\[0\.\] {
-    top: 0.;
-  }
-  .top-\[4\.8px\] {
-    top: 4.8px;
-  }
-  .top-\[4\.8rem\] {
-    top: 4.8rem;
-  }
-  .top-auto {
-    top: auto;
-  }
-  .right-1 {
-    right: calc(var(--spacing) * 1);
-  }
-  .right-3 {
-    right: calc(var(--spacing) * 3);
-  }
-  .right-4 {
-    right: calc(var(--spacing) * 4);
-  }
   .tab-content {
     order: var(--tabcontent-order);
     display: none;
@@ -864,9 +803,6 @@
     border-start-end-radius: var(--tabcontent-radius-se);
     border-end-start-radius: var(--tabcontent-radius-es);
     border-end-end-radius: var(--tabcontent-radius-ee);
-  }
-  .m-auto {
-    margin: auto;
   }
   .label {
     display: inline-flex;
@@ -920,24 +856,6 @@
   .mt-3 {
     margin-top: calc(var(--spacing) * 3);
   }
-  .mt-\[0\.2\] {
-    margin-top: 0.2;
-  }
-  .mt-\[0\.2rem\] {
-    margin-top: 0.2rem;
-  }
-  .mt-\[0\.3\] {
-    margin-top: 0.3;
-  }
-  .mt-\[3\.2px\] {
-    margin-top: 3.2px;
-  }
-  .mt-\[3\.2rem\] {
-    margin-top: 3.2rem;
-  }
-  .mr-2 {
-    margin-right: calc(var(--spacing) * 2);
-  }
   .mr-4 {
     margin-right: calc(var(--spacing) * 4);
   }
@@ -950,15 +868,6 @@
     padding-block: calc(0.25rem * 2);
     color: var(--color-base-content);
     font-weight: 600;
-  }
-  .mb-\[0\.2rem\] {
-    margin-bottom: 0.2rem;
-  }
-  .mb-\[3\.2px\] {
-    margin-bottom: 3.2px;
-  }
-  .mb-\[3\.2pxrem\] {
-    margin-bottom: 3.2pxrem;
   }
   .status {
     display: inline-block;
@@ -1089,59 +998,20 @@
     width: calc(var(--spacing) * 4);
     height: calc(var(--spacing) * 4);
   }
-  .\!h-\[3\.2rem\] {
-    height: 3.2rem !important;
-  }
   .h-6 {
     height: calc(var(--spacing) * 6);
-  }
-  .h-\[\.2rem\] {
-    height: .2rem;
-  }
-  .h-\[2\.2rem\] {
-    height: 2.2rem;
   }
   .h-\[2rem\] {
     height: 2rem;
   }
-  .h-\[3\.2rem\] {
-    height: 3.2rem;
-  }
   .h-\[3rem\] {
     height: 3rem;
-  }
-  .h-\[4xp\] {
-    height: 4xp;
-  }
-  .h-\[30\.2rem\] {
-    height: 30.2rem;
   }
   .h-\[30rem\] {
     height: 30rem;
   }
-  .h-\[35\.2px\] {
-    height: 35.2px;
-  }
   .h-\[36rem\] {
     height: 36rem;
-  }
-  .h-\[40rem\] {
-    height: 40rem;
-  }
-  .h-\[48px\] {
-    height: 48px;
-  }
-  .h-\[51\.2px\] {
-    height: 51.2px;
-  }
-  .h-\[51\.2rem\] {
-    height: 51.2rem;
-  }
-  .h-\[483\.2px\] {
-    height: 483.2px;
-  }
-  .h-\[576px\] {
-    height: 576px;
   }
   .h-full {
     height: 100%;
@@ -1188,9 +1058,6 @@
   }
   .items-center {
     align-items: center;
-  }
-  .items-center-safe {
-    align-items: safe center;
   }
   .justify-between {
     justify-content: space-between;
@@ -1239,12 +1106,6 @@
   .border-base-300 {
     border-color: var(--color-base-300);
   }
-  .border-red-400 {
-    border-color: var(--color-red-400);
-  }
-  .border-red-500 {
-    border-color: var(--color-red-500);
-  }
   .bg-base-100 {
     background-color: var(--color-base-100);
   }
@@ -1277,11 +1138,17 @@
   .px-5 {
     padding-inline: calc(var(--spacing) * 5);
   }
-  .py-0\.5 {
-    padding-block: calc(var(--spacing) * 0.5);
+  .px-\[2rem\] {
+    padding-inline: 2rem;
   }
   .py-6 {
     padding-block: calc(var(--spacing) * 6);
+  }
+  .py-\[1\.5rem\] {
+    padding-block: 1.5rem;
+  }
+  .py-\[2rem\] {
+    padding-block: 2rem;
   }
   .pt-2 {
     padding-top: calc(var(--spacing) * 2);
