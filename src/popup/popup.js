@@ -1,8 +1,13 @@
 // HTML Elements
 const headerIconEl = document.querySelector("#header-icon");
+const appearanceTabEl = document.querySelector("#appearance-tab");
 const unhookContentEl = document.querySelector("#unhook-content");
+const appearanceContentEl = document.querySelector("#appearance-content");
+const optCtrlEl = document.querySelector("#option-controller");
 
 let sld;
+let optCtrlStatus;
+let activeOptions = [];
 
 function getBrowserInfo() {
   // Detect user browser type
@@ -30,8 +35,78 @@ const platforms = {
   youtube: loadYoutubeUI,
 };
 
+function saveOptions(platform, id) {
+  // Save active options to browser storage
+  if (activeOptions.includes(id)) {
+    const i = activeOptions.indexOf(id);
+    activeOptions.splice(i, 1);
+  } else {
+    activeOptions.push(id);
+  }
+
+  api.storage.sync.set({ [platform]: activeOptions });
+}
+
+function optionController() {
+  // Turn on/off options and save option controller status to browser storage
+  let optCtrlStatus = optCtrlEl.children[0].textContent;
+  let optionsEl = document.querySelectorAll(".option");
+
+  if (optCtrlStatus === "Off") {
+    optCtrlEl.children[0].textContent = "On";
+    optCtrlStatus = "On";
+
+    optionsEl.forEach((el) => {
+      el.children[0].disabled = false;
+    });
+
+    for (id of activeOptions) {
+      document.querySelector("#" + id).children[0].checked = true;
+    }
+  } else {
+    optCtrlEl.children[0].textContent = "Off";
+    optCtrlStatus = "Off";
+
+    optionsEl.forEach((el) => {
+      el.children[0].disabled = true;
+    });
+
+    for (id of activeOptions) {
+      document.querySelector("#" + id).children[0].checked = false;
+    }
+  }
+
+  api.storage.sync.set({ optCtrlStatus: optCtrlStatus });
+}
+
+function loadPopup() {
+  optCtrlEl.children[1].disabled = false;
+
+  // Load options status from browser storage
+  api.storage.sync.get(["optCtrlStatus", sld] || [], (data) => {
+    data.optCtrlStatus ? (optCtrlStatus = data.optCtrlStatus) : (optCtrlStatus = "On");
+
+    if (data[sld]) activeOptions = data[sld];
+
+    if (optCtrlStatus === "On") {
+      optCtrlEl.children[0].textContent = "On";
+      optCtrlEl.children[1].checked = true;
+
+      for (id of activeOptions) {
+        document.querySelector("#" + id).children[0].checked = true;
+      }
+    } else {
+      document.querySelectorAll(".option").forEach((el) => {
+        el.children[0].disabled = true;
+      });
+    }
+  });
+}
+
 function loadYoutubeUI() {
   // Load YouTube's specific popup UI
+  loadPopup();
+
   headerIconEl.src = "/public/logos/youtube.svg";
 
   unhookContentEl.innerHTML = `
@@ -119,4 +194,12 @@ function loadYoutubeUI() {
       </label>
     </fieldset>
   `;
+
+  document.querySelectorAll(".option").forEach((el) => {
+    el.addEventListener("change", () => {
+      saveOptions("youtube", el.id);
+    });
+  });
 }
+
+optCtrlEl.addEventListener("change", optionController);
