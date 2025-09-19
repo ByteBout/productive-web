@@ -6,5 +6,104 @@
     <link rel="stylesheet" href="/src/styles/output.css" />
     <title>ProductiveWeb</title>
   </head>
-  <body></body>
+  <body class="flex h-[36rem] w-96 flex-col gap-0.5 p-1">
+    <!-- Header -->
+    <div class="border-base-300 rounded-box grid h-[3.125rem] w-full grid-cols-3 items-center border">
+      <div></div>
+      <!-- icon -->
+      <div id="header-icon" class="flex h-full items-center justify-center justify-self-center rounded-full">
+        <img src="/public/logos/productive-web.svg" alt="productive web logo" class="h-12 w-12" />
+      </div>
+
+      <!-- Options on/off toggle -->
+      <label
+        id="option-controller"
+        class="label mr-4 flex h-full items-center justify-center gap-1 justify-self-end text-sm">
+        <div class="text-sm select-none">Off</div>
+        <input type="checkbox" class="toggle toggle-sm toggle-primary" disabled />
+      </label>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs tabs-lift tabs-sm rounded-box flex h-[30rem] w-full justify-center">
+      <!-- Unhook -->
+      <label class="tab">
+        <input type="radio" name="my_tabs_4" checked="checked" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="me-1.5 size-4" fill="currentColor">
+          <path
+            d="M23.271,9.419A15.866,15.866,0,0,0,19.9,5.51l2.8-2.8a1,1,0,0,0-1.414-1.414L18.241,4.345A12.054,12.054,0,0,0,12,2.655C5.809,2.655,2.281,6.893.729,9.419a4.908,4.908,0,0,0,0,5.162A15.866,15.866,0,0,0,4.1,18.49l-2.8,2.8a1,1,0,1,0,1.414,1.414l3.052-3.052A12.054,12.054,0,0,0,12,21.345c6.191,0,9.719-4.238,11.271-6.764A4.908,4.908,0,0,0,23.271,9.419ZM2.433,13.534a2.918,2.918,0,0,1,0-3.068C3.767,8.3,6.782,4.655,12,4.655A10.1,10.1,0,0,1,16.766,5.82L14.753,7.833a4.992,4.992,0,0,0-6.92,6.92l-2.31,2.31A13.723,13.723,0,0,1,2.433,13.534ZM15,12a3,3,0,0,1-3,3,2.951,2.951,0,0,1-1.285-.3L14.7,10.715A2.951,2.951,0,0,1,15,12ZM9,12a3,3,0,0,1,3-3,2.951,2.951,0,0,1,1.285.3L9.3,13.285A2.951,2.951,0,0,1,9,12Zm12.567,1.534C20.233,15.7,17.218,19.345,12,19.345A10.1,10.1,0,0,1,7.234,18.18l2.013-2.013a4.992,4.992,0,0,0,6.92-6.92l2.31-2.31a13.723,13.723,0,0,1,3.09,3.529A2.918,2.918,0,0,1,21.567,13.534Z" />
+        </svg>
+        Unhook
+      </label>
+      <div class="tab-content bg-base-100 border-base-300 rounded-box overflow-hidden">
+        <div id="unhook-content" class="h-full w-full overflow-auto px-8 py-7 [scrollbar-gutter:stable_both-edges]">
+          <div role="alert" class="alert alert-error rounded-box mt-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 shrink-0 stroke-current"
+              fill="none"
+              viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="font-bold"> This site isn't supported. </span> <br />
+          </div>
+
+          <div role="alert" class="alert alert-info alert-soft rounded-box mt-1 flex flex-col">
+            <span class="font-semibold">Currently Supported Platforms</span>
+            <div class="-mt-1 flex flex-row flex-wrap justify-center gap-1">
+              <div class="badge badge-info badge-xs font-semibold">YouTube</div>
+              <div class="badge badge-info badge-xs font-semibold">X (soon)</div>
+              <div class="badge badge-info badge-xs font-semibold">Twitch (soon)</div>
+              <div class="badge badge-info badge-xs font-semibold">Instagram (soon)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Appearance -->
+      <label id="appearance-tab" class="tab pointer-events-none">
+        <input type="radio" name="my_tabs_4" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="me-1.5 size-4" fill="currentColor">
+          <path
+            d="M22.485,10.975,12,17.267,1.515,10.975A1,1,0,1,0,.486,12.69l11,6.6a1,1,0,0,0,1.03,0l11-6.6a1,1,0,1,0-1.029-1.715Z" />
+          <path
+            d="M22.485,15.543,12,21.834,1.515,15.543A1,1,0,1,0,.486,17.258l11,6.6a1,1,0,0,0,1.03,0l11-6.6a1,1,0,1,0-1.029-1.715Z" />
+          <path
+            d="M12,14.773a2.976,2.976,0,0,1-1.531-.425L.485,8.357a1,1,0,0,1,0-1.714L10.469.652a2.973,2.973,0,0,1,3.062,0l9.984,5.991a1,1,0,0,1,0,1.714l-9.984,5.991A2.976,2.976,0,0,1,12,14.773ZM2.944,7.5,11.5,12.633a.974.974,0,0,0,1,0L21.056,7.5,12.5,2.367a.974.974,0,0,0-1,0h0Z" />
+        </svg>
+        Appearance
+      </label>
+      <div class="tab-content bg-base-100 border-base-300 rounded-box overflow-hidden">
+        <div
+          id="appearance-content"
+          class="h-full w-full overflow-auto px-8 py-7 [scrollbar-gutter:stable_both-edges]"></div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div
+      class="border-base-300 rounded-box flex h-[2.125rem] w-full flex-row items-center justify-center gap-1 border px-5 text-sm">
+      <a href="https://productiveweb.co" target="_blank" class="flex items-center">
+        <img src="/public/interface-icons/globe.svg" alt="website" class="fill-base-content h-4 w-4" />
+      </a>
+      <p class="text-base-300 px-0.5">|</p>
+      <a href="https://github.com/byte-bout/productive-web" target="_blank" class="flex items-center">
+        <img src="/public/interface-icons/github.svg" alt="github" class="fill-base-content h-4 w-4" />
+      </a>
+      <p class="text-base-300 px-0.5">|</p>
+      <a href="https://gum.co/u/gkqtokv9" target="_blank" class="flex flex-row items-center gap-1">
+        <img src="/public/interface-icons/rocket.svg" alt="rocket" class="fill-base-content h-4 w-4" />
+        <p class="text-center">Boost Your Productivity</p>
+      </a>
+      <p class="text-base-300 px-0.5">|</p>
+      <a href="https://productiveweb.co/support" target="_blank" class="flex flex-row items-center gap-1">
+        <img src="/public/interface-icons/support.svg" alt="support" class="fill-base-content h-4 w-4" />
+        <p class="text-center">Support</p>
+      </a>
+    </div>
+  </body>
 </html>
