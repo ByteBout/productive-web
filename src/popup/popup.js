@@ -6,6 +6,7 @@ const appearanceContentEl = document.querySelector("#appearance-content");
 const optCtrlEl = document.querySelector("#option-controller");
 
 let sld;
+let activeTab;
 let optCtrlStatus;
 let activeOptions = [];
 
@@ -22,6 +23,7 @@ const api = getBrowserInfo();
 
 // Get second-level domain of active tab
 api.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
+  activeTab = tabs[0].id;
   const url = tabs[0].url;
   sld = url.replace(/(https:\/\/)|www\.|\.[^.]*$/g, "");
 
@@ -35,7 +37,7 @@ const platforms = {
   youtube: loadYoutubeUI,
 };
 
-function saveOptions(platform, id) {
+async function saveOptions(platform, id) {
   // Save active options to browser storage
   if (activeOptions.includes(id)) {
     const i = activeOptions.indexOf(id);
@@ -44,7 +46,12 @@ function saveOptions(platform, id) {
     activeOptions.push(id);
   }
 
-  api.storage.sync.set({ [platform]: activeOptions });
+  await api.storage.sync.set({ [platform]: activeOptions });
+
+  api.tabs.sendMessage(activeTab, {
+    type: "options",
+    data: activeOptions,
+  });
 }
 
 function optionController() {
@@ -77,6 +84,11 @@ function optionController() {
   }
 
   api.storage.sync.set({ optCtrlStatus: optCtrlStatus });
+
+  api.tabs.sendMessage(activeTab, {
+    type: "controller",
+    data: optCtrlStatus,
+  });
 }
 
 function loadPopup() {
