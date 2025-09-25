@@ -93,6 +93,7 @@ function optionController() {
 
 function loadPopup() {
   optCtrlEl.children[1].disabled = false;
+  headerIconEl.src = `/public/logos/${sld}.svg`;
 
   // Load options status from browser storage
   api.storage.sync.get(["optCtrlStatus", sld] || [], (data) => {
@@ -118,8 +119,6 @@ function loadPopup() {
 function loadYoutubeUI() {
   // Load YouTube's specific popup UI
   loadPopup();
-
-  headerIconEl.src = "/public/logos/youtube.svg";
 
   unhookContentEl.innerHTML = `
     <fieldset class="fieldset bg-base-100 border-base-300 -mt-2 w-full rounded-box border px-5 pt-2 pb-4">
