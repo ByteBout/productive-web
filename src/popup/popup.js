@@ -135,16 +135,16 @@ function loadYoutubeUI() {
         Hide Notifications
         <input type="checkbox" class="toggle toggle-sm toggle-primary" />
       </label>
+      <label id="filters" class="option label flex flex-row items-center justify-between px-2 select-none">
+        Hide Filters
+        <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+      </label>
     </fieldset>
 
     <fieldset class="fieldset bg-base-100 border-base-300 w-full rounded-box border px-5 pt-2 pb-4">
       <legend class="fieldset-legend">Home Page</legend>
       <label id="feed" class="option label flex flex-row items-center justify-between px-2 select-none">
         Hide Feed
-        <input type="checkbox" class="toggle toggle-sm toggle-primary" />
-      </label>
-      <label id="filters" class="option label flex flex-row items-center justify-between px-2 select-none">
-        Hide Filters
         <input type="checkbox" class="toggle toggle-sm toggle-primary" />
       </label>
     </fieldset>
