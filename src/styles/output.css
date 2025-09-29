@@ -15,6 +15,7 @@
     --font-weight-bold: 700;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --font-family-AlanSans: "AlanSans", Arial, sans-serif;
   }
 }
 @layer base {
@@ -1156,6 +1157,9 @@
   .text-center {
     text-align: center;
   }
+  .font-family-AlanSans {
+    font-family: var(--font-family-AlanSans);
+  }
   .text-sm {
     font-size: var(--text-sm);
     line-height: var(--tw-leading, var(--text-sm--line-height));
@@ -1200,6 +1204,13 @@
       --size: calc(var(--size-selector, 0.25rem) * 5);
     }
   }
+}
+@font-face {
+  font-family: "AlanSans";
+  src: url("/public/fonts/AlanSans.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 @layer base {
   :root:has(input.theme-controller[value=sunset]:checked),[data-theme=sunset] {
