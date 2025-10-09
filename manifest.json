@@ -1,7 +1,7 @@
 {
   "name": "ProductiveWeb",
   "description": "Cut distractions, silence noise, and break free from algorithm loops",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "manifest_version": 3,
   "action": {
     "default_popup": "src/popup/popup.html"
@@ -11,13 +11,26 @@
     "48": "public/icons/icon48.png",
     "128": "public/icons/icon128.png"
   },
-  "permissions": ["tabs", "storage"],
-  "host_permissions": ["<all_urls>"],
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": [
+    "https://*.youtube.com/*",
+    "https://*.x.com/*",
+    "https://*.instagram.com/*",
+    "https://*.twitch.tv/*"
+  ],
   "content_scripts": [
     {
       "matches": ["https://*.youtube.com/*"],
       "js": ["/src/scripts/youtube.js"],
       "run_at": "document_end"
     }
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "byt3bout@gmail.com",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
 }
