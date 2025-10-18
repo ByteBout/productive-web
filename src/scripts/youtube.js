@@ -15,7 +15,7 @@ const targetElements = {
   filters: ["#chips-wrapper", "#chips"],
   "side-subs": [
     "#guide-renderer > div > ytd-guide-section-renderer:nth-last-child(4)",
-    "#endpoint[title='Subscriptions']",
+    "#endpoint[href='/feed/subscriptions']",
   ],
   "side-explore": ["#guide-renderer > div > ytd-guide-section-renderer:nth-last-child(3)"],
   "side-more": ["#guide-renderer > div > ytd-guide-section-renderer:nth-last-child(2)"],
@@ -59,12 +59,12 @@ function unhook(options) {
 
 function setAutoplay() {
   try {
-    const autoplayEl = document.querySelector(".ytp-autonav-toggle");
-    const autoPlayStatus = autoplayEl.getAttribute("data-tooltip-title");
+    const autoplayEl = document.querySelector(".ytp-autonav-toggle-button");
+    const autoPlayStatus = autoplayEl.getAttribute("aria-checked");
 
-    if (activeOptions.includes("autoplay") && autoPlayStatus.includes("on")) {
+    if (activeOptions.includes("autoplay") && autoPlayStatus.includes("true")) {
       autoplayEl.click();
-    } else if (!activeOptions.includes("autoplay") && autoPlayStatus.includes("off")) {
+    } else if (!activeOptions.includes("autoplay") && autoPlayStatus.includes("false")) {
       autoplayEl.click();
     }
   } catch {}
