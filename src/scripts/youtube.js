@@ -25,7 +25,7 @@ const targetElements = {
   "live-chat": ["#chat-container", "#panels-full-bleed-container", "#teaser-carousel"],
   autoplay: [],
   cards: [".ytp-ce-video", ".ytp-ce-channel-this", ".ytp-ce-website"],
-  wall: [".ytp-endscreen-content"],
+  wall: [".ytp-endscreen-content", ".ytp-modern-videowall-still"],
 };
 
 let activeOptions = [];
