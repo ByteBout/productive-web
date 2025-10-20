@@ -142,6 +142,10 @@ function loadYoutubeUI() {
         Hide Filters
         <input type="checkbox" class="toggle toggle-sm toggle-primary" />
       </label>
+      <label id="stats" class="option label flex flex-row items-center justify-between px-2 select-none">
+        Hide Stats
+        <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+      </label>
     </fieldset>
 
     <fieldset class="fieldset bg-base-100 border-base-300 w-full rounded-box border px-5 pt-2 pb-4">
@@ -188,6 +192,10 @@ function loadYoutubeUI() {
       </label>
       <label id="live-chat" class="option label flex flex-row items-center justify-between px-2 select-none">
         Hide Live Chat
+        <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+      </label>
+      <label id="shop" class="option label flex flex-row items-center justify-between px-2 select-none">
+        Hide Shop
         <input type="checkbox" class="toggle toggle-sm toggle-primary" />
       </label>
     </fieldset>
