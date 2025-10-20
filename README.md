@@ -1,4 +1,4 @@
-<img width="1000" height="300" alt="ProductiveWeb banner" src="https://github.com/user-attachments/assets/5b7ea132-ec4f-4f5c-8286-a3fd24c4e802" />
+<img width="100%" alt="ProductiveWeb banner" src="https://github.com/user-attachments/assets/f79822f6-2453-4c14-a2c5-d52cd768706d" />
 
 <div align="center">
 <img src="https://img.shields.io/github/license/Byte-Bout/productive-web">
