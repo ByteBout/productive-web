@@ -58,6 +58,10 @@ let activeOptions = [];
 let optCtrlStatus;
 const api = getBrowserInfo();
 
+const style = document.createElement("style");
+style.id = "productive-web";
+document.head.appendChild(style);
+
 function getBrowserInfo() {
   if (typeof browser !== "undefined") {
     return browser;
@@ -77,10 +81,7 @@ function unhook(options) {
     });
   }
 
-  const style = document.querySelector("#productive-web") || document.createElement("style");
-  style.id = "productive-web";
   style.textContent = selectors + "{display: none !important;}";
-  document.head.appendChild(style);
 }
 
 function setAutoplay() {
@@ -118,4 +119,6 @@ const observer = new MutationObserver(() => {
   if (optCtrlStatus !== "Off") unhook(activeOptions);
   setAutoplay();
 });
+
 observer.observe(document.body, { childList: true });
+document.addEventListener("unload", () => observer.disconnect);
