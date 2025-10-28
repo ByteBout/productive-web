@@ -85,16 +85,18 @@ function unhook(options) {
 }
 
 function setAutoplay() {
-  try {
-    const autoplayEl = document.querySelector(".ytp-autonav-toggle-button");
-    const autoPlayStatus = autoplayEl.getAttribute("aria-checked");
+  if (window.location.href.includes("youtube.com/watch?v")) {
+    try {
+      const autoplayEl = document.querySelector(".ytp-autonav-toggle-button");
+      const autoPlayStatus = autoplayEl.getAttribute("aria-checked");
 
-    if (activeOptions.includes("autoplay") && autoPlayStatus.includes("true")) {
-      autoplayEl.click();
-    } else if (!activeOptions.includes("autoplay") && autoPlayStatus.includes("false")) {
-      autoplayEl.click();
-    }
-  } catch {}
+      if (activeOptions.includes("autoplay") && autoPlayStatus.includes("true")) {
+        autoplayEl.click();
+      } else if (!activeOptions.includes("autoplay") && autoPlayStatus.includes("false")) {
+        autoplayEl.click();
+      }
+    } catch {}
+  }
 }
 
 chrome.runtime.onMessage.addListener((message) => {
