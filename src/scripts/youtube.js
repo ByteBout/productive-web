@@ -56,19 +56,11 @@ const targetElements = {
 
 let activeOptions = [];
 let optCtrlStatus;
-const api = getBrowserInfo();
+const api = typeof browser !== "undefined" ? browser : chrome;
 
 const style = document.createElement("style");
 style.id = "productive-web";
 document.head.appendChild(style);
-
-function getBrowserInfo() {
-  if (typeof browser !== "undefined") {
-    return browser;
-  } else {
-    return chrome;
-  }
-}
 
 function unhook(options) {
   if (!options) return;
@@ -85,18 +77,18 @@ function unhook(options) {
 }
 
 function setAutoplay() {
-  if (window.location.href.includes("youtube.com/watch?v")) {
-    try {
-      const autoplayEl = document.querySelector(".ytp-autonav-toggle-button");
-      const autoPlayStatus = autoplayEl.getAttribute("aria-checked");
+  if (!window.location.href.includes("youtube.com/watch?v")) return;
 
-      if (activeOptions.includes("autoplay") && autoPlayStatus.includes("true")) {
-        autoplayEl.click();
-      } else if (!activeOptions.includes("autoplay") && autoPlayStatus.includes("false")) {
-        autoplayEl.click();
-      }
-    } catch {}
-  }
+  try {
+    const autoplayEl = document.querySelector(".ytp-autonav-toggle-button");
+    const autoplayStatus = autoplayEl.getAttribute("aria-checked");
+
+    if (activeOptions.includes("autoplay") && autoplayStatus.includes("true")) {
+      autoplayEl.click();
+    } else if (!activeOptions.includes("autoplay") && autoplayStatus.includes("false")) {
+      autoplayEl.click();
+    }
+  } catch {}
 }
 
 chrome.runtime.onMessage.addListener((message) => {
