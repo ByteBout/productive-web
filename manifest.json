@@ -1,7 +1,7 @@
 {
   "name": "ProductiveWeb",
   "description": "Cut distractions, silence noise, and break free from algorithm loops",
-  "version": "1.0.2",
+  "version": "1.1.2",
   "manifest_version": 3,
   "action": {
     "default_popup": "src/popup/popup.html"
