@@ -225,16 +225,64 @@ function loadYoutubeUI() {
 }
 
 function loadTwitterUI() {
+  // Load X's specific popup UI
   loadPopup();
 
   unhookContentEl.innerHTML = `
-    <div role="alert" class="alert alert-info">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="h-6 w-6 shrink-0 stroke-current">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-      </svg>
-      <span class="font-bold">Available Soon</span>
-    </div>
+    <fieldset class="fieldset bg-base-100 border-base-300 w-full rounded-box border px-5 pt-2 pb-4">
+      <legend class="fieldset-legend">General</legend>
+      <label id="feed" class="option label flex flex-row items-center justify-between px-2 select-none">
+        Hide Feed
+        <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+      </label>
+      <label id="premium" class="option label flex flex-row items-center justify-between px-2 select-none">
+        Hide Premium Offer
+        <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+      </label>
+      <label id="who-to-follow" class="option label flex flex-row items-center justify-between px-2 select-none">
+        Hide Who to Follow
+        <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+      </label>
+      <label id="trending" class="option label flex flex-row items-center justify-between px-2 select-none">
+        Hide What’s happening
+        <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+      </label>
+      <label id="grok" class="option label flex flex-row items-center justify-between px-2 select-none">
+        Hide Grok
+        <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+      </label>
+      <label id="stats" class="option label flex flex-row items-center justify-between px-2 select-none">
+        Hide Stats
+        <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+      </label>
+    </fieldset>
+
+    <fieldset class="fieldset bg-base-100 border-base-300 w-full rounded-box border px-5 pt-2 pb-4">
+      <legend class="fieldset-legend">Sidebar</legend>
+      <label id="explore" class="option label flex flex-row items-center justify-between px-2 select-none">
+        Hide Explore
+        <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+      </label>
+      <label id="notifications" class="option label flex flex-row items-center justify-between px-2 select-none">
+        Hide Notifications
+        <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+      </label>
+      <label id="messages" class="option label flex flex-row items-center justify-between px-2 select-none">
+        Hide Messages
+        <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+      </label>
+      <label id="communities" class="option label flex flex-row items-center justify-between px-2 select-none">
+        Hide Communities
+        <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+      </label>
+    </fieldset>
   `;
+
+  document.querySelectorAll(".option").forEach((el) => {
+    el.addEventListener("change", () => {
+      saveOptions("x", el.id);
+    });
+  });
 }
 
 function loadInstagramUI() {

@@ -990,6 +990,9 @@
     grid-template-columns: 1fr;
     grid-auto-rows: max-content;
   }
+  .block {
+    display: block;
+  }
   .contents {
     display: contents;
   }
