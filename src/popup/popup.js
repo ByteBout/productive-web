@@ -9,17 +9,7 @@ let sld;
 let activeTab;
 let optCtrlStatus;
 let activeOptions = [];
-
-function getBrowserInfo() {
-  // Detect user browser type
-  if (typeof browser !== "undefined") {
-    return browser;
-  } else {
-    return chrome;
-  }
-}
-
-const api = getBrowserInfo();
+const api = typeof browser !== "undefined" ? browser : chrome;
 
 // Get second-level domain of active tab
 api.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
