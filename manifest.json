@@ -11,7 +11,7 @@
     "48": "public/icons/icon48.png",
     "128": "public/icons/icon128.png"
   },
-  "permissions": ["activeTab", "storage"],
+  "permissions": ["activeTab", "storage", "declarativeNetRequest", "declarativeNetRequestWithHostAccess"],
   "host_permissions": [
     "https://*.youtube.com/*",
     "https://*.x.com/*",
@@ -23,6 +23,11 @@
       "matches": ["https://*.youtube.com/*"],
       "js": ["/src/scripts/youtube.js"],
       "run_at": "document_end"
+    },
+    {
+      "matches": ["https://*.x.com/*"],
+      "js": ["/src/scripts/x.js"],
+      "run_at": "document_idle"
     }
   ],
   "browser_specific_settings": {
@@ -32,5 +37,19 @@
         "required": ["none"]
       }
     }
+  },
+  "background": {
+    "service_worker": "/src/background.js",
+    "scripts": ["/src/background.js"],
+    "type": "module"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "x_ruleset",
+        "enabled": true,
+        "path": "/src/rules/x_rules.json"
+      }
+    ]
   }
 }
