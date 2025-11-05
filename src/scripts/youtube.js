@@ -24,7 +24,7 @@ const targetElements = {
   playlist: ["#playlist"],
   "live-chat": ["#chat-container", "#panels-full-bleed-container", "#teaser-carousel"],
   autoplay: [],
-  cards: [".ytp-ce-video", ".ytp-ce-channel-this", ".ytp-ce-website"],
+  cards: [".ytp-ce-video", ".ytp-ce-channel-this", ".ytp-ce-website", ".ytp-ce-element"],
   wall: [".ytp-endscreen-content", ".ytp-modern-videowall-still"],
   shop: ["ytd-merch-shelf-renderer"],
   stats: [
