@@ -7,9 +7,9 @@
 <img src="https://img.shields.io/github/stars/Byte-Bout/productive-web">
 </div>
 
-https://github.com/user-attachments/assets/110aef31-ff5d-40f6-b56d-b98c1320ab2b
-
 ProductiveWeb is an all-in-one unhook extension for browsers to hide distractive parts of popular social media and streaming websites. Use these websites without algorithm traps to stay focused on doing what matters and reduce your screen time.
+
+https://github.com/user-attachments/assets/110aef31-ff5d-40f6-b56d-b98c1320ab2b
 
 ## Installation
 Easily download and use ProductiveWeb from official browser extension marketplaces. <br>
