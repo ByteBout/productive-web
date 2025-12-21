@@ -4,8 +4,9 @@
     "priority": 1,
     "action": { "type": "block" },
     "condition": {
-      "urlFilter": "https://x.com/i/api/graphql/L6QhhX2jvjMt-Gyb449_Gg/HomeTimeline",
-      "resourceTypes": ["xmlhttprequest"]
+      "urlFilter": "/HomeTimeline",
+      "resourceTypes": ["xmlhttprequest"],
+      "domains": ["x.com"]
     }
   }
 ]
