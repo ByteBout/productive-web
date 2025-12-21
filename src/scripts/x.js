@@ -9,7 +9,7 @@ const targetElements = {
   grok: ["a[aria-label='Grok']", "[data-testid='GrokDrawer']", "[aria-label='Grok actions']"],
   explore: ["a[href='/explore']"],
   notifications: ["a[href='/notifications']"],
-  messages: ["a[href='/messages']"],
+  messages: ["a[href='/i/chat']", "[data-testid='chat-drawer-main']"],
   communities: ["[aria-label='Communities']"],
   stats: [
     "[data-testid='reply'] > div > div > span",

@@ -258,7 +258,7 @@ function loadTwitterUI() {
         <input type="checkbox" class="toggle toggle-sm toggle-primary" />
       </label>
       <label id="messages" class="option label flex flex-row items-center justify-between px-2 select-none">
-        Hide Messages
+        Hide Chat
         <input type="checkbox" class="toggle toggle-sm toggle-primary" />
       </label>
       <label id="communities" class="option label flex flex-row items-center justify-between px-2 select-none">
