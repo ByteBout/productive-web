@@ -5,8 +5,7 @@
     "action": { "type": "block" },
     "condition": {
       "urlFilter": "/HomeTimeline",
-      "resourceTypes": ["xmlhttprequest"],
-      "domains": ["x.com"]
+      "resourceTypes": ["xmlhttprequest"]
     }
   }
 ]
