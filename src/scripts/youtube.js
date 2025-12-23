@@ -14,7 +14,7 @@ const targetElements = {
   feed: ["[page-subtype='home']"],
   filters: ["#chips-wrapper", "#chips"],
   "side-subs": [
-    "#guide-renderer > div > ytd-guide-section-renderer:nth-last-child(4)",
+    "#guide-renderer > div > ytd-guide-section-renderer:nth-last-child(5)",
     "#endpoint[href='/feed/subscriptions']",
   ],
   "side-explore": ["#guide-renderer > div > ytd-guide-section-renderer:nth-last-child(3)"],
