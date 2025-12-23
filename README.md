@@ -30,7 +30,7 @@ Easily download and use ProductiveWeb from official browser extension marketplac
 > For major changes, first open an issue
 1. Clone the repo
 ```bash
-git clone https://github.com/Byte-Bout/productive-web.git
+git clone https://github.com/ByteBout/productive-web.git
 ```
 2. Install packages and run
 ```bash
