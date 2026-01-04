@@ -114,7 +114,7 @@ function loadYoutubeUI() {
   loadPopup();
 
   unhookContentEl.innerHTML = `
-    <fieldset class="fieldset bg-base-100 border-base-300 -mt-2 w-full rounded-box border px-5 pt-2 pb-4">
+    <fieldset class="fieldset bg-base-100 border-base-300 -mt-2 w-full rounded-box border px-5 pt-2 pb-4 text-sm">
       <legend class="fieldset-legend">General</legend>
       <label id="ads" class="option label flex flex-row items-center justify-between px-2 select-none">
         Hide Ads
@@ -138,7 +138,7 @@ function loadYoutubeUI() {
       </label>
     </fieldset>
 
-    <fieldset class="fieldset bg-base-100 border-base-300 w-full rounded-box border px-5 pt-2 pb-4">
+    <fieldset class="fieldset bg-base-100 border-base-300 w-full rounded-box border px-5 pt-2 pb-4 text-sm">
       <legend class="fieldset-legend">Home Page</legend>
       <label id="feed" class="option label flex flex-row items-center justify-between px-2 select-none">
         Hide Feed
@@ -146,7 +146,7 @@ function loadYoutubeUI() {
       </label>
     </fieldset>
 
-    <fieldset class="fieldset bg-base-100 border-base-300 w-full rounded-box border px-5 pt-2 pb-4">
+    <fieldset class="fieldset bg-base-100 border-base-300 w-full rounded-box border px-5 pt-2 pb-4 text-sm">
       <legend class="fieldset-legend">Sidebar</legend>
       <label id="side-subs" class="option label flex flex-row items-center justify-between px-2 select-none">
         Hide Subscriptions
@@ -164,7 +164,7 @@ function loadYoutubeUI() {
       </label>
     </fieldset>
 
-    <fieldset class="fieldset bg-base-100 border-base-300 w-full rounded-box border px-5 pt-2 pb-4">
+    <fieldset class="fieldset bg-base-100 border-base-300 w-full rounded-box border px-5 pt-2 pb-4 text-sm">
       <legend class="fieldset-legend">Video Page</legend>
       <label
         id="recommendations"
@@ -190,7 +190,7 @@ function loadYoutubeUI() {
       </label>
     </fieldset>
 
-    <fieldset class="fieldset bg-base-100 border-base-300 w-full rounded-box border px-5 pt-2 pb-4">
+    <fieldset class="fieldset bg-base-100 border-base-300 w-full rounded-box border px-5 pt-2 pb-4 text-sm">
       <legend class="fieldset-legend">Video</legend>
       <label id="autoplay" class="option label flex flex-row items-center justify-between px-2 select-none">
         Disable Autoplay
@@ -219,7 +219,7 @@ function loadTwitterUI() {
   loadPopup();
 
   unhookContentEl.innerHTML = `
-    <fieldset class="fieldset bg-base-100 border-base-300 w-full rounded-box border px-5 pt-2 pb-4">
+    <fieldset class="fieldset bg-base-100 border-base-300 w-full rounded-box border px-5 pt-2 pb-4 text-sm">
       <legend class="fieldset-legend">General</legend>
       <label id="feed" class="option label flex flex-row items-center justify-between px-2 select-none">
         Hide Feed
@@ -247,7 +247,7 @@ function loadTwitterUI() {
       </label>
     </fieldset>
 
-    <fieldset class="fieldset bg-base-100 border-base-300 w-full rounded-box border px-5 pt-2 pb-4">
+    <fieldset class="fieldset bg-base-100 border-base-300 w-full rounded-box border px-5 pt-2 pb-4 text-sm">
       <legend class="fieldset-legend">Sidebar</legend>
       <label id="explore" class="option label flex flex-row items-center justify-between px-2 select-none">
         Hide Explore
