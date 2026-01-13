@@ -1,8 +1,9 @@
 const targetElements = {
   feed: ["[aria-label='Timeline: Your Home Timeline']"],
   premium: [
-    "div:has(> div > div[data-testid='super-upsell-UpsellCardRenderProperties'])",
+    // "div:has(> div > div[data-testid='super-upsell-UpsellCardRenderProperties'])",
     "a[href='/i/premium_sign_up']",
+    "[aria-label='Subscribe to Premium']",
   ],
   "who-to-follow": ["div:has(> div > aside[aria-label='Who to follow'])"],
   trending: ["div:has(> section > div[aria-label='Timeline: Trending now'])"],
