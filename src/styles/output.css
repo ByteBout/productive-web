@@ -1191,10 +1191,6 @@
     font-size: var(--text-sm);
     line-height: var(--tw-leading, var(--text-sm--line-height));
   }
-  .text-xs {
-    font-size: var(--text-xs);
-    line-height: var(--tw-leading, var(--text-xs--line-height));
-  }
   .tabs-sm {
     --tab-height: calc(var(--size-field, 0.25rem) * 8);
     :where(.tab) {
