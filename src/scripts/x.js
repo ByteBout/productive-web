@@ -7,6 +7,7 @@ const targetElements = {
   ],
   "who-to-follow": ["div:has(> div > aside[aria-label='Who to follow'])"],
   trending: ["div:has(> section > div[aria-label='Timeline: Trending now'])"],
+  lives: ["div:has(> div > [aria-label*='Broadcast'])"],
   grok: ["a[aria-label='Grok']", "[data-testid='GrokDrawer']", "[aria-label='Grok actions']"],
   explore: ["a[href='/explore']"],
   notifications: ["a[href='/notifications']"],
