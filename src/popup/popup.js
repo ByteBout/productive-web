@@ -237,6 +237,10 @@ function loadTwitterUI() {
         Hide What’s happening
         <input type="checkbox" class="toggle toggle-sm toggle-primary" />
       </label>
+      <label id="lives" class="option label flex flex-row items-center justify-between px-2 select-none">
+        Hide Lives
+        <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+      </label>
       <label id="grok" class="option label flex flex-row items-center justify-between px-2 select-none">
         Hide Grok
         <input type="checkbox" class="toggle toggle-sm toggle-primary" />
