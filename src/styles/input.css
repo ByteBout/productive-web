@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "AlanSans";
+  src: url("/public/fonts/AlanSans.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import "tailwindcss";
+
+@theme {
+  --font-alansans: "AlanSans", sans-serif;
+}
+
+@layer base {
+  body * {
+    @apply font-alansans;
+  }
+
+  body {
+    @apply bg-black text-white;
+  }
+}
