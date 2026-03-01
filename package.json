@@ -7,6 +7,7 @@
     "dev": "npx @tailwindcss/cli -i ./src/styles/input.css -o ./src/styles/output.css --watch"
   },
   "devDependencies": {
+    "daisyui": "^5.5.19",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2"
   }

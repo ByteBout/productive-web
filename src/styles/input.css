@@ -7,6 +7,79 @@
 }
 
 @import "tailwindcss";
+@plugin "daisyui" {
+  themes:
+    light --default,
+    dark --prefersdark;
+}
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: true;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100: #121212;
+  --color-base-200: #1e1e1e;
+  --color-base-300: #2a2a2a;
+  --color-base-content: #f5f5f5;
+  --color-primary: #f2af29;
+  --color-primary-content: #f5f5f5;
+  --color-secondary: #1f2937;
+  --color-secondary-content: #f5f5f5;
+  --color-accent: #00b3a4;
+  --color-accent-content: #f5f5f5;
+  --color-neutral: #6b7280;
+  --color-neutral-content: #f5f5f5;
+  --color-info: #2f7dd1;
+  --color-info-content: oklch(89.04% 0.062 264.052);
+  --color-success: #2e9e6f;
+  --color-success-content: oklch(90.395% 0.035 142.495);
+  --color-warning: #d97706;
+  --color-warning-content: oklch(19.359% 0.042 109.769);
+  --color-error: #d64545;
+  --color-error-content: oklch(12.559% 0.051 29.233);
+  --radius-selector: 2rem;
+  --radius-field: 2rem;
+  --radius-box: 2rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.21875rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: #f5f5f5;
+  --color-base-200: #eaeaec;
+  --color-base-300: #d4d4d8;
+  --color-base-content: #121212;
+  --color-primary: #f2af29;
+  --color-primary-content: #121212;
+  --color-secondary: #1f2937;
+  --color-secondary-content: #121212;
+  --color-accent: #00b3a4;
+  --color-accent-content: #121212;
+  --color-neutral: #6b7280;
+  --color-neutral-content: #121212;
+  --color-info: #2f7dd1;
+  --color-info-content: oklch(89.04% 0.062 264.052);
+  --color-success: #2e9e6f;
+  --color-success-content: oklch(90.395% 0.035 142.495);
+  --color-warning: #d97706;
+  --color-warning-content: oklch(19.359% 0.042 109.769);
+  --color-error: #d64545;
+  --color-error-content: oklch(12.559% 0.051 29.233);
+  --radius-selector: 2rem;
+  --radius-field: 2rem;
+  --radius-box: 2rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.21875rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
 
 @theme {
   --font-alansans: "AlanSans", sans-serif;
@@ -15,9 +88,5 @@
 @layer base {
   body * {
     @apply font-alansans;
-  }
-
-  body {
-    @apply bg-black text-white;
   }
 }
