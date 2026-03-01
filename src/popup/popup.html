@@ -6,5 +6,143 @@
     <link rel="stylesheet" href="/src/styles/output.css" />
     <title>ProductiveWeb</title>
   </head>
-  <body class="h-128 w-72"></body>
+  <body class="flex h-128 w-72 flex-col justify-between gap-0.5 p-1">
+    <div
+      class="border-base-300 flex h-auto items-center justify-between rounded-full border p-1">
+      <div class="flex items-center gap-1">
+        <div class="bg-primary h-7 w-7 rounded-full"></div>
+        <p class="text-base-content text-lg">ProductiveWeb</p>
+      </div>
+
+      <div class="bg-base-200 flex flex-row-reverse rounded-full select-none">
+        <label for="flex items-center cursor-pointer">
+          <input type="checkbox" class="peer hidden" />
+
+          <span
+            class="peer-checked:text-primary text-base-content hover:bg-base-300 flex h-7 w-7 cursor-pointer items-center justify-center rounded-full transition-all duration-150">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              fill="none"
+              stroke="currentColor"
+              stroke-linejoin="round"
+              class="h-5 w-5"
+              id="power-icon">
+              <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+              <line x1="12" y1="2" x2="12" y2="12"></line>
+            </svg>
+          </span>
+        </label>
+
+        <label for="flex items-center cursor-pointer">
+          <input type="checkbox" class="peer hidden" />
+
+          <span
+            class="peer-checked:text-primary text-base-content hover:bg-base-300 flex h-7 w-7 cursor-pointer items-center justify-center rounded-full transition-all duration-150">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="hidden h-5 w-5"
+              id="dark-icon">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="hidden h-5 w-5"
+              id="light-icon">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <div
+      class="border-base-300 scrollbar-none flex h-full flex-col overflow-y-auto rounded-3xl border p-5">
+      <div role="alert" class="alert alert-warning flex h-9 w-full">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="-mr-2 h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2.5"
+            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        </svg>
+        <span id="warning-text" class="text-sm">Website isn't supported</span>
+      </div>
+
+      <div
+        class="alert-info alert-soft mt-1 flex h-auto w-full flex-col items-center rounded-2xl px-2">
+        <p class="mt-1 text-sm">Supported Websites</p>
+        <span class="flex w-full flex-wrap justify-center gap-0.5 p-2">
+          <div class="badge badge-info badge-xs">YouTube</div>
+          <div class="badge badge-info badge-xs">X</div>
+          <div class="badge badge-info badge-xs">Instagram</div>
+        </span>
+      </div>
+    </div>
+
+    <div
+      class="border-base-300 flex items-center justify-center rounded-full border p-1.5">
+      <a
+        href="https://productiveweb.co"
+        target="_blank"
+        class="hover:text-primary peer text-base-content flex cursor-pointer items-center justify-center rounded-full px-1 text-sm transition-all duration-150">
+        Website
+      </a>
+
+      <p class="text-base-300 text-xs select-none">●</p>
+
+      <a
+        href="https://github.com/bytebout/productive-web"
+        target="_blank"
+        class="hover:text-primary peer text-base-content flex cursor-pointer items-center justify-center rounded-full px-1 text-sm transition-all duration-150">
+        GitHub
+      </a>
+
+      <p class="text-base-300 text-xs select-none">●</p>
+
+      <a
+        href="https://productiveweb.co/donate"
+        target="_blank"
+        class="hover:text-primary peer text-base-content flex cursor-pointer items-center justify-center rounded-full px-1 text-sm transition-all duration-150">
+        Donate
+      </a>
+
+      <p class="text-base-300 text-xs select-none">●</p>
+
+      <a
+        href="/src/popup/support.html"
+        class="hover:text-primary peer text-base-content flex cursor-pointer items-center justify-center rounded-full px-1 text-sm transition-all duration-150">
+        Support
+      </a>
+    </div>
+  </body>
+  <script src="/src/popup/popup.js"></script>
 </html>
