@@ -6,5 +6,57 @@
     <link rel="stylesheet" href="/src/styles/output.css" />
     <title>Support</title>
   </head>
-  <body></body>
+  <body class="flex h-128 w-72 flex-col justify-between gap-0.5 p-1">
+    <div
+      class="border-base-300 flex h-auto items-center rounded-full border p-1">
+      <a
+        href="/src/popup/popup.html"
+        class="bg-base-200 text-base-content hover:bg-base-300 flex h-7 w-7 cursor-pointer items-center justify-center rounded-full pr-0.5 transition-all duration-150">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-5 w-5">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </a>
+
+      <p class="text-base-content flex pl-2 text-lg">Support</p>
+    </div>
+
+    <div
+      class="border-base-300 text-base-content scrollbar-none flex h-full flex-col gap-0.5 overflow-y-auto rounded-3xl border p-5 text-sm">
+      <p>If you have experienced any issues, try the following methods:</p>
+      <ul class="text- list-disc pl-5">
+        <li class="marker:text-primary">Refresh the page</li>
+        <li class="marker:text-primary">Restart the browser</li>
+        <li class="marker:text-primary">Disable similar extensions</li>
+        <li class="marker:text-primary">Reinstall ProductiveWeb</li>
+      </ul>
+
+      <hr class="text-base-300 my-1.5" />
+
+      <p>
+        If the issue isn’t resolved, please contact us at
+        <a
+          href="mailto:byt3bout@gmail.com"
+          target="_blank"
+          class="text-primary">
+          byt3bout@gmail.com
+        </a>
+        or open an issue on
+        <a
+          href="https://github.com/ByteBout/productive-web/issues/new"
+          target="_blank"
+          class="text-primary -mr-1">
+          GitHub
+        </a>
+        .
+      </p>
+    </div>
+  </body>
 </html>
