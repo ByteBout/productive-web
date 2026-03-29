@@ -6,5 +6,72 @@
     <link rel="stylesheet" href="/src/styles/output.css" />
     <title>ProductiveWeb</title>
   </head>
-  <body></body>
+  <body class="flex h-128 w-80 flex-col gap-0.5 p-1">
+    <!-- Header Start -->
+    <header class="border-base-200 flex items-center justify-between rounded-full border p-1">
+      <!-- Logo Start -->
+      <div class="flex h-full items-center gap-0.5 select-none">
+        <img src="" alt="" class="h-8 w-8 rounded-full" />
+        <p class="text-lg">ProductiveWeb</p>
+      </div>
+      <!-- Logo End -->
+
+      <!-- Switches Start -->
+      <div class="flex h-full rounded-full">
+        <!-- Power Switch -->
+        <label class="swap hover:bg-base-200 h-8 w-8 rounded-full duration-200 select-none">
+          <input type="checkbox" checked />
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="swap-off stroke-base-content h-6.5 w-6.5">
+            <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+            <line x1="12" y1="2" x2="12" y2="12"></line>
+          </svg>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="swap-on stroke-primary h-6.5 w-6.5">
+            <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+            <line x1="12" y1="2" x2="12" y2="12"></line>
+          </svg>
+        </label>
+      </div>
+      <!-- Switches End -->
+    </header>
+    <!-- Header End -->
+
+    <!-- Content Start -->
+    <main class="border-base-200 rounded-box flex h-full border"></main>
+    <!-- Content End -->
+
+    <!-- Footer Start -->
+    <footer class="border-base-200 flex items-center justify-center gap-1 rounded-full border py-0.5 select-none">
+      <a href="" target="_blank" class="hover:text-primary text-base duration-200"> Website </a>
+
+      <p class="text-base-300 text-xs">●</p>
+
+      <a
+        href="https://github.com/bytebout/productive-web"
+        target="_blank"
+        class="hover:text-primary text-base duration-200">
+        GitHub
+      </a>
+
+      <p class="text-base-300 text-xs">●</p>
+
+      <a href="" target="_blank" class="hover:text-primary text-base duration-200"> Donate </a>
+    </footer>
+    <!-- Footer End -->
+  </body>
 </html>
