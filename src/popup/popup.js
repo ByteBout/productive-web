@@ -30,6 +30,33 @@ powerSwitchEl.addEventListener("change", () => {
   powerSwitchEl.checked ? chrome.storage.local.set({ power: "on" }) : chrome.storage.local.set({ power: "off" });
 });
 
+function loadOptions(sld) {
+  // Load options condition from browser storage
+  chrome.storage.sync.get([sld], (options) => {
+    const activeOptions = options[sld] || [];
+
+    activeOptions.forEach((option) => {
+      document.querySelector("#" + option).checked = true;
+    });
+  });
+}
+
+function saveOption(option, sld) {
+  // Save options condition to browser storage
+  chrome.storage.sync.get([sld], (options) => {
+    let activeOptions = options[sld] || [];
+
+    if (!activeOptions.includes(option)) {
+      activeOptions.push(option);
+    } else {
+      let i = activeOptions.indexOf(option);
+      activeOptions.splice(i, 1);
+    }
+
+    chrome.storage.sync.set({ [sld]: activeOptions });
+  });
+}
+
 function displayAlert() {
   // Display an alert for unsupported websites and a list of supported websites
   pageContentEl.innerHTML = `
@@ -65,11 +92,11 @@ function loadYouTubeContent() {
       <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-full border px-6 py-2 text-sm">
         <legend class="fieldset-legend">General</legend>
         <label class="label flex-row-reverse justify-between">
-          <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+          <input type="checkbox" id="ads" class="toggle toggle-sm toggle-primary" />
           Hide Ads
         </label>
         <label class="label mb-1.5 flex-row-reverse justify-between">
-          <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+          <input type="checkbox" id="shorts" class="toggle toggle-sm toggle-primary" />
           Hide Shorts
         </label>
       </fieldset>
@@ -77,11 +104,11 @@ function loadYouTubeContent() {
       <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-full border px-6 py-2 text-sm">
         <legend class="fieldset-legend">Home Page</legend>
         <label class="label flex-row-reverse justify-between">
-          <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+          <input type="checkbox" id="feed" class="toggle toggle-sm toggle-primary" />
           Hide Feed
         </label>
         <label class="label mb-1.5 flex-row-reverse justify-between">
-          <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+          <input type="checkbox" id="notifocations" class="toggle toggle-sm toggle-primary" />
           Hide Notifications
         </label>
       </fieldset>
@@ -89,15 +116,15 @@ function loadYouTubeContent() {
       <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-full border px-6 py-2 text-sm">
         <legend class="fieldset-legend">Sidebar</legend>
         <label class="label flex-row-reverse justify-between">
-          <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+          <input type="checkbox" id="subscriptions" class="toggle toggle-sm toggle-primary" />
           Hide Subscriptions
         </label>
         <label class="label flex-row-reverse justify-between">
-          <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+          <input type="checkbox" id="explore" class="toggle toggle-sm toggle-primary" />
           Hide Explore
         </label>
         <label class="label mb-1.5 flex-row-reverse justify-between">
-          <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+          <input type="checkbox" id="more-from-youtube" class="toggle toggle-sm toggle-primary" />
           Hide More from YouTube
         </label>
       </fieldset>
@@ -105,19 +132,19 @@ function loadYouTubeContent() {
       <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-full border px-6 py-2 text-sm">
         <legend class="fieldset-legend">Video Page</legend>
         <label class="label flex-row-reverse justify-between">
-          <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+          <input type="checkbox" id="recommendations" class="toggle toggle-sm toggle-primary" />
           Hide Recommendations
         </label>
         <label class="label flex-row-reverse justify-between">
-          <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+          <input type="checkbox" id="comments" class="toggle toggle-sm toggle-primary" />
           Hide Comments
         </label>
         <label class="label flex-row-reverse justify-between">
-          <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+          <input type="checkbox" id="live-chat" class="toggle toggle-sm toggle-primary" />
           Hide Live Chat
         </label>
         <label class="label mb-1.5 flex-row-reverse justify-between">
-          <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+          <input type="checkbox" id="shop" class="toggle toggle-sm toggle-primary" />
           Hide Shop
         </label>
       </fieldset>
@@ -125,17 +152,24 @@ function loadYouTubeContent() {
       <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-full border px-6 py-2 text-sm">
         <legend class="fieldset-legend">Video</legend>
         <label class="label flex-row-reverse justify-between">
-          <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+          <input type="checkbox" id="autoplay" class="toggle toggle-sm toggle-primary" />
           Disable Autoplay
         </label>
         <label class="label flex-row-reverse justify-between">
-          <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+          <input type="checkbox" id="video-cards" class="toggle toggle-sm toggle-primary" />
           Hide End Video Cards
         </label>
         <label class="label mb-1.5 flex-row-reverse justify-between">
-          <input type="checkbox" class="toggle toggle-sm toggle-primary" />
+          <input type="checkbox" id="video-wall" class="toggle toggle-sm toggle-primary" />
           Hide End Video Wall
         </label>
       </fieldset>
   `;
+
+  const options = document.querySelectorAll(".toggle");
+  options.forEach((option) => {
+    option.addEventListener("change", (e) => saveOption(e.target.id, "youtube"));
+  });
+
+  loadOptions("youtube");
 }
