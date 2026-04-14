@@ -4,7 +4,8 @@ const pageContentEl = document.querySelector("#page-content");
 let sld;
 let tabId;
 const supportedWebsites = {
-  youtube: loadYouTubeContent(),
+  youtube: loadYouTubeContent,
+  x: loadXContent,
 };
 
 chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -17,7 +18,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
   const hostnameParts = hostname.split(".");
   sld = hostnameParts.length == 2 ? hostnameParts[0] : hostnameParts[1];
 
-  sld in supportedWebsites ? supportedWebsites.sld : displayAlert();
+  sld in supportedWebsites ? supportedWebsites[sld]() : displayAlert();
 });
 
 // Load power switch condition from browser storage
@@ -81,6 +82,7 @@ function displayAlert() {
       <span class="text-sm font-bold">Supported Websites</span>
       <div class="-mt-2 flex w-full flex-wrap justify-center gap-0.5">
         <div class="badge badge-info badge-xs">YouTube</div>
+        <div class="badge badge-info badge-xs">X</div>
       </div>
     </div>
     `;
@@ -175,4 +177,71 @@ function loadYouTubeContent() {
   });
 
   loadOptions("youtube");
+}
+
+function loadXContent() {
+  pageContentEl.innerHTML = `
+      <div class="border-base-300 bg-base-200 rounded-box flex w-full items-center gap-1.5 border p-3">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-base-content h-8 w-8">
+          <polygon points="6.861 6.159 15.737 17.764 17.097 17.764 8.322 6.159 6.861 6.159"/>
+          <path d="m12,0C5.373,0,0,5.373,0,12s5.373,12,12,12,12-5.373,12-12S18.627,0,12,0Zm3.063,19.232l-3.87-5.055-4.422,5.055h-2.458l5.733-6.554-6.046-7.91h5.062l3.494,4.621,4.043-4.621h2.455l-5.361,6.126,6.307,8.337h-4.937Z"/>
+        </svg>
+        <p class="text-lg">X</p>
+      </div>
+
+      <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-full border px-6 py-2 text-sm">
+        <legend class="fieldset-legend">General</legend>
+        <label class="label flex-row-reverse justify-between">
+          <input type="checkbox" id="grok" class="toggle toggle-sm toggle-primary" />
+          Hide Grok
+        </label>
+        <label class="label flex-row-reverse justify-between">
+          <input type="checkbox" id="chat" class="toggle toggle-sm toggle-primary" />
+          Hide Chat
+        </label>
+        <label class="label flex-row-reverse justify-between">
+          <input type="checkbox" id="who-to-follow" class="toggle toggle-sm toggle-primary" />
+          Hide Who to follow
+        </label>
+        <label class="label flex-row-reverse justify-between">
+          <input type="checkbox" id="happening" class="toggle toggle-sm toggle-primary" />
+          Hide What’s happening
+        </label>
+        <label class="label mb-1.5 flex-row-reverse justify-between">
+          <input type="checkbox" id="premium" class="toggle toggle-sm toggle-primary" />
+          Hide Premium Offer
+        </label>
+      </fieldset>
+
+      <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-full border px-6 py-2 text-sm">
+        <legend class="fieldset-legend">Home Page</legend>
+        <label class="label mb-1.5 flex-row-reverse justify-between">
+          <input type="checkbox" id="feed" class="toggle toggle-sm toggle-primary" />
+          Hide Feed
+        </label>
+      </fieldset>
+
+      <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-full border px-6 py-2 text-sm">
+        <legend class="fieldset-legend">Sidebar</legend>
+        <label class="label flex-row-reverse justify-between">
+          <input type="checkbox" id="explore" class="toggle toggle-sm toggle-primary" />
+          Hide Explore
+        </label>
+        <label class="label flex-row-reverse justify-between">
+          <input type="checkbox" id="notifications" class="toggle toggle-sm toggle-primary" />
+          Hide Notifications
+        </label>
+        <label class="label mb-1.5 flex-row-reverse justify-between">
+          <input type="checkbox" id="follow" class="toggle toggle-sm toggle-primary" />
+          Hide Follow
+        </label>
+      </fieldset>
+  `;
+
+  const options = document.querySelectorAll(".toggle");
+  options.forEach((option) => {
+    option.addEventListener("change", (e) => saveOption(e.target.id, "x"));
+  });
+
+  loadOptions("x");
 }
