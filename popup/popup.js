@@ -2,12 +2,14 @@ const powerSwitchEl = document.querySelector("#power-switch");
 const pageContentEl = document.querySelector("#page-content");
 
 let sld;
+let tabId;
 const supportedWebsites = {
   youtube: loadYouTubeContent(),
 };
 
 chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
   if (!tabs && !tabs[0]) return;
+  tabId = tabs[0].id;
 
   // Extract the second-level domain from the URL
   const url = new URL(tabs[0].url);
@@ -18,16 +20,20 @@ chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
   sld in supportedWebsites ? supportedWebsites.sld : displayAlert();
 });
 
-// Load power switch condition from local storage
-chrome.storage.local.get(["power"], (condition) => {
+// Load power switch condition from browser storage
+chrome.storage.sync.get(["power"], (condition) => {
   const c = condition.power || "on";
 
   if (c === "off") powerSwitchEl.checked = false;
 });
 
-// Save power switch condition to local storage
+// Save power switch condition to browser storage
 powerSwitchEl.addEventListener("change", () => {
-  powerSwitchEl.checked ? chrome.storage.local.set({ power: "on" }) : chrome.storage.local.set({ power: "off" });
+  let condition;
+  powerSwitchEl.checked ? (condition = "on") : (condition = "off");
+
+  chrome.tabs.sendMessage(tabId, { power: condition, sld: sld });
+  chrome.storage.sync.set({ power: condition });
 });
 
 function loadOptions(sld) {
@@ -53,6 +59,7 @@ function saveOption(option, sld) {
       activeOptions.splice(i, 1);
     }
 
+    chrome.tabs.sendMessage(tabId, { options: activeOptions, sld: sld });
     chrome.storage.sync.set({ [sld]: activeOptions });
   });
 }
@@ -151,10 +158,6 @@ function loadYouTubeContent() {
 
       <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-full border px-6 py-2 text-sm">
         <legend class="fieldset-legend">Video</legend>
-        <label class="label flex-row-reverse justify-between">
-          <input type="checkbox" id="autoplay" class="toggle toggle-sm toggle-primary" />
-          Disable Autoplay
-        </label>
         <label class="label flex-row-reverse justify-between">
           <input type="checkbox" id="video-cards" class="toggle toggle-sm toggle-primary" />
           Hide End Video Cards
