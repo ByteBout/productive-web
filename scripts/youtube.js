@@ -25,8 +25,12 @@ const targetElements = {
   comments: ["#comments"],
   "live-chat": ["#chat", "#panels-full-bleed-container"],
   shop: ["ytd-merch-shelf-renderer", ".ytd-merch-shelf-renderer"],
-  "video-cards": [".ytp-ce-channel-this", ".ytp-ce-large-round", ".ytp-ce-hide-button-container"],
-  "video-wall": [".ytp-modern-videowall-still"],
+  "video-cards": [
+    ".html5-video-player > .ytp-ce-channel-this",
+    ".html5-video-player > .ytp-ce-large-round",
+    ".html5-video-player > .ytp-ce-hide-button-container",
+  ],
+  "video-wall": [".ytp-fullscreen-grid-stills-container:has(.ytp-suggestion-set)"],
 };
 
 let activeOptions;
@@ -34,7 +38,6 @@ let powerCondition;
 
 const style = document.createElement("style");
 style.setAttribute("id", "productive-web");
-document.querySelector("head").appendChild(style);
 
 chrome.storage.sync.get(["youtube", "power"], (data) => {
   activeOptions = data.youtube || [];
@@ -55,13 +58,24 @@ chrome.runtime.onMessage.addListener((request) => {
 function hideElements(options) {
   let selectors = "";
 
-  for (let i = 0; i < options.length; i++) {
-    const x = options[i];
-    selectors += targetElements[x] + ", ";
-  }
+  try {
+    for (let i = 0; i < options.length; i++) {
+      const x = options[i];
+      selectors += targetElements[x] + ", ";
+    }
 
-  selectors = selectors.substring(0, selectors.length - 2);
-  style.innerHTML = `${selectors} {
-    display: none;
-  }`;
+    selectors = selectors.substring(0, selectors.length - 2);
+    style.innerHTML = `${selectors} {
+      display: none;
+    }`;
+  } catch (error) {}
 }
+
+const observer = new MutationObserver(() => {
+  document.querySelector("head").appendChild(style);
+  hideElements(activeOptions);
+
+  console.log("Mutation Observer Ran!!!");
+});
+
+observer.observe(document.documentElement, { childList: true });
